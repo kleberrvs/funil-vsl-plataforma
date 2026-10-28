@@ -1,5 +1,7 @@
 # Funil VSL · Plataforma
 
+**Ver o funil desenhado:** https://kleberrvs.github.io/funil-vsl-plataforma/
+
 Funil de vendas da Revolução Concursos: anúncios levam para a página com a VSL, um
 pop-up coleta o contato, o checkout fica na Hotmart e quem não compra recebe 7 dias
 de mensagens no WhatsApp e no e-mail ao mesmo tempo (o "Ataque Soviético").

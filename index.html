@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funil VSL · Plataforma</title>
+<meta name="description" content="Funil de vendas da Revolução Concursos: anúncios, página com VSL, checkout e jornadas de WhatsApp e e-mail.">
+<style>
+  :root {
+    --bg: #0e1420; --panel: #121a28; --card: #161d2c; --border: #253046;
+    --text: #e8edf7; --muted: #8b9ab5; --orange: #fd6a18;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font: 14px/1.4 "Inter", system-ui, -apple-system, sans-serif; overflow: hidden; }
+
+  header { position: fixed; inset: 0 0 auto 0; z-index: 5; display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; background: rgba(18, 26, 40, .92); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
+  header .ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); flex: none; }
+  header h1 { margin: 0; font-size: 15px; font-weight: 600; white-space: nowrap; }
+  header p { margin: 0; color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  header a { margin-left: auto; color: var(--muted); font-size: 13px; white-space: nowrap; }
+
+  #palco { position: fixed; inset: 0; overflow: hidden; cursor: grab; touch-action: none;
+    background-image: radial-gradient(#253046 1px, transparent 1px); background-size: 24px 24px; }
+  #palco.arrastando { cursor: grabbing; }
+  #mundo { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  #setas { position: absolute; overflow: visible; pointer-events: none; }
+  #setas path { fill: none; stroke: #3a4a68; stroke-width: 2; }
+
+  .no { position: absolute; background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: border-color .15s; }
+  .no:hover { border-color: var(--cor); }
+  .no .topo { display: flex; align-items: center; gap: 8px; padding: 12px 14px 8px; }
+  .no .topo svg { width: 18px; height: 18px; stroke: var(--cor); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .no .tipo { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--cor); }
+  .no .canal { margin-left: auto; font-size: 11px; color: var(--muted); }
+  .no h3 { margin: 0; padding: 0 14px; font-size: 15px; font-weight: 600; }
+  .no .texto { padding: 6px 14px 12px; color: var(--muted); white-space: pre-line; overflow: hidden; flex: 1; }
+  .no.compacto .texto { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; flex: none; }
+  .no .previa { margin: 4px 14px 0; flex: 1; min-height: 120px; border-radius: 8px; border: 1px dashed var(--border);
+    display: grid; place-items: center; color: var(--muted); font-size: 12px; text-align: center; padding: 12px; }
+  .no .previa a { color: var(--cor); }
+  .no .numeros { display: flex; gap: 14px; padding: 10px 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+  .no .numeros b { color: var(--text); font-weight: 600; }
+  .no.nota { background: #fde047; border: none; color: #3b3200; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+  .no.nota .texto { color: #3b3200; font-weight: 600; }
+
+  .controles { position: fixed; right: 16px; bottom: 16px; z-index: 5; display: flex; gap: 6px; }
+  .controles button { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--panel); color: var(--text); font-size: 18px; cursor: pointer; }
+  .controles button.largo { width: auto; padding: 0 14px; font-size: 13px; }
+  .aviso { position: fixed; left: 16px; bottom: 16px; z-index: 5; color: var(--muted); font-size: 12px; max-width: 46%; }
+
+  #detalhe { position: fixed; z-index: 10; top: 0; right: 0; bottom: 0; width: min(420px, 100%);
+    background: var(--panel); border-left: 1px solid var(--border); padding: 20px; overflow-y: auto;
+    transform: translateX(100%); transition: transform .2s; }
+  #detalhe.aberto { transform: none; }
+  #detalhe .tipo { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+  #detalhe h2 { margin: 6px 0 14px; font-size: 20px; }
+  #detalhe .corpo { white-space: pre-line; line-height: 1.6; }
+  #detalhe .corpo a { color: var(--orange); }
+  #detalhe .fechar { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 16px; cursor: pointer; }
+
+  @media (max-width: 640px) {
+    header p, header a { display: none; }
+    .aviso { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <span class="ponto"></span>
+  <h1 id="nome">Funil</h1>
+  <p id="descricao"></p>
+  <a href="https://github.com/kleberrvs/funil-vsl-plataforma">ver no GitHub</a>
+</header>
+
+<div id="palco"><div id="mundo"><svg id="setas"></svg></div></div>
+
+<p class="aviso">Arraste para mover, use a roda do mouse para aproximar e clique num bloco para ler tudo. Os números vêm da simulação do painel, não são dados reais.</p>
+<div class="controles">
+  <button id="menos" aria-label="Afastar">−</button>
+  <button id="mais" aria-label="Aproximar">+</button>
+  <button id="ajustar" class="largo">Ver tudo</button>
+</div>
+
+<aside id="detalhe" aria-live="polite">
+  <button class="fechar" aria-label="Fechar">✕</button>
+  <div class="tipo"></div>
+  <h2></h2>
+  <div class="corpo"></div>
+</aside>
+
+<script>
+// Tipos de etapa com as mesmas cores e ícones do painel Funil ao Vivo
+const TIPOS = {
+  anuncio:    { rotulo: "Anúncio",    cor: "#f472b6", d: "M4 11v2a1 1 0 0 0 1 1h2l6 4V6L7 10H5a1 1 0 0 0-1 1z M17 9a4 4 0 0 1 0 6 M20 7a7 7 0 0 1 0 10" },
+  pagina:     { rotulo: "Página",     cor: "#38bdf8", d: "M3 5h18v14H3z M3 9h18 M6 7h.01 M9 7h.01" },
+  formulario: { rotulo: "Formulário", cor: "#fbbf24", d: "M5 3h14v18H5z M8 8h8 M8 12h8 M8 16h5" },
+  popup:      { rotulo: "Pop-up",     cor: "#e879f9", d: "M4 6h16v12H4z M8 10h8v5H8z" },
+  checkout:   { rotulo: "Checkout",   cor: "#fb923c", d: "M12 2v20 M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" },
+  whatsapp:   { rotulo: "WhatsApp",   cor: "#25d366", d: "M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" },
+  email:      { rotulo: "E-mail",     cor: "#a78bfa", d: "M3 6h18v12H3z M3 7l9 6 9-6" },
+  audiencia:  { rotulo: "Audiência",  cor: "#9ca3af", d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" },
+  nota:       { rotulo: "Nota",       cor: "#fde047", d: "M4 4h16v12l-4 4H4z M16 20v-4h4" },
+};
+
+const palco = document.getElementById("palco");
+const mundo = document.getElementById("mundo");
+const setas = document.getElementById("setas");
+const detalhe = document.getElementById("detalhe");
+let vista = { x: 0, y: 0, zoom: 1 };
+let limites;
+
+const escapar = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const icone = (t) => `<svg viewBox="0 0 24 24"><path d="${t.d}"/></svg>`;
+
+function desenharNo(n) {
+  const t = TIPOS[n.data.tipo] || TIPOS.nota;
+  const { width: w, height: h } = n.measured;
+  const el = document.createElement("div");
+  el.className = "no" + (n.data.compacto ? " compacto" : "") + (n.data.tipo === "nota" ? " nota" : "");
+  el.style.cssText = `left:${n.position.x}px;top:${n.position.y}px;width:${w}px;height:${h}px;--cor:${t.cor}`;
+
+  if (n.data.tipo === "nota") {
+    el.innerHTML = `<div class="texto">${escapar(n.data.texto)}</div>`;
+  } else {
+    const s = n.data.stats || {};
+    const previa = n.data.url
+      ? `<div class="previa"><div>Prévia da página<br><a href="${escapar(n.data.url)}" target="_blank" rel="noopener">${escapar(n.data.url.replace("https://", ""))}</a></div></div>`
+      : "";
+    el.innerHTML = `
+      <div class="topo">${icone(t)}<span class="tipo">${t.rotulo}</span><span class="canal">${escapar(n.data.canal)}</span></div>
+      <h3>${escapar(n.data.titulo)}</h3>
+      ${previa}
+      ${n.data.texto ? `<div class="texto">${escapar(n.data.texto)}</div>` : ""}
+      <div class="numeros"><span><b>${s.entradas ?? 0}</b> entraram</span><span><b>${s.avancaram ?? 0}</b> avançaram</span></div>`;
+  }
+  el.addEventListener("click", (e) => {
+    if (palco.dataset.moveu === "1" || e.target.closest("a")) return;
+    abrirDetalhe(n, t);
+  });
+  mundo.appendChild(el);
+}
+
+function desenharSetas(nodes, edges) {
+  const porId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+  setas.setAttribute("style", `left:${limites.x}px;top:${limites.y}px;width:${limites.w}px;height:${limites.h}px`);
+  setas.setAttribute("viewBox", `${limites.x} ${limites.y} ${limites.w} ${limites.h}`);
+  setas.innerHTML = edges.map((e) => {
+    const a = porId[e.source], b = porId[e.target];
+    const x1 = a.position.x + a.measured.width, y1 = a.position.y + a.measured.height / 2;
+    const x2 = b.position.x, y2 = b.position.y + b.measured.height / 2;
+    const curva = Math.max(60, (x2 - x1) / 2);
+    return `<path d="M${x1},${y1} C${x1 + curva},${y1} ${x2 - curva},${y2} ${x2},${y2}"/>`;
+  }).join("");
+}
+
+function abrirDetalhe(n, t) {
+  detalhe.querySelector(".tipo").textContent = t.rotulo + (n.data.canal ? " · " + n.data.canal : "");
+  detalhe.querySelector(".tipo").style.color = t.cor;
+  detalhe.querySelector("h2").textContent = n.data.titulo;
+  const link = n.data.url ? `\n\n<a href="${escapar(n.data.url)}" target="_blank" rel="noopener">Abrir a página</a>` : "";
+  detalhe.querySelector(".corpo").innerHTML = escapar(n.data.texto || "") + link;
+  detalhe.classList.add("aberto");
+}
+detalhe.querySelector(".fechar").addEventListener("click", () => detalhe.classList.remove("aberto"));
+document.addEventListener("keydown", (e) => e.key === "Escape" && detalhe.classList.remove("aberto"));
+
+// Mover e aproximar
+function aplicar() {
+  mundo.style.transform = `translate(${vista.x}px, ${vista.y}px) scale(${vista.zoom})`;
+  palco.style.backgroundPosition = `${vista.x}px ${vista.y}px`;
+  palco.style.backgroundSize = `${24 * vista.zoom}px ${24 * vista.zoom}px`;
+}
+function aproximar(fator, cx = innerWidth / 2, cy = innerHeight / 2) {
+  const novo = Math.min(2, Math.max(0.1, vista.zoom * fator));
+  vista.x = cx - (cx - vista.x) * (novo / vista.zoom);
+  vista.y = cy - (cy - vista.y) * (novo / vista.zoom);
+  vista.zoom = novo;
+  aplicar();
+}
+function verTudo() {
+  const topo = 64, margem = 24;
+  const zoom = Math.min((innerWidth - margem * 2) / limites.w, (innerHeight - topo - margem * 2) / limites.h);
+  vista = { zoom, x: margem - limites.x * zoom + (innerWidth - margem * 2 - limites.w * zoom) / 2, y: topo + margem - limites.y * zoom };
+  aplicar();
+}
+
+const toques = new Map();
+let inicio = null;
+palco.addEventListener("pointerdown", (e) => {
+  toques.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  palco.dataset.moveu = "0";
+  inicio = { x: e.clientX, y: e.clientY, vx: vista.x, vy: vista.y };
+  palco.classList.add("arrastando");
+});
+palco.addEventListener("pointermove", (e) => {
+  if (!toques.has(e.pointerId)) return;
+  const antes = [...toques.values()];
+  toques.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (toques.size === 2) {
+    const depois = [...toques.values()];
+    const dist = (p) => Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+    aproximar(dist(depois) / dist(antes), (depois[0].x + depois[1].x) / 2, (depois[0].y + depois[1].y) / 2);
+    palco.dataset.moveu = "1";
+    return;
+  }
+  const dx = e.clientX - inicio.x, dy = e.clientY - inicio.y;
+  // Só prende o ponteiro depois que ele anda, para o clique no bloco continuar funcionando
+  if (Math.abs(dx) + Math.abs(dy) > 4 && palco.dataset.moveu !== "1") {
+    palco.dataset.moveu = "1";
+    palco.setPointerCapture(e.pointerId);
+  }
+  vista.x = inicio.vx + dx;
+  vista.y = inicio.vy + dy;
+  aplicar();
+});
+const soltar = (e) => {
+  toques.delete(e.pointerId);
+  if (toques.size === 1) {
+    const [p] = toques.values();
+    inicio = { x: p.x, y: p.y, vx: vista.x, vy: vista.y };
+  }
+  if (!toques.size) palco.classList.remove("arrastando");
+};
+palco.addEventListener("pointerup", soltar);
+palco.addEventListener("pointercancel", soltar);
+palco.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  aproximar(Math.exp(-e.deltaY * 0.0015), e.clientX, e.clientY);
+}, { passive: false });
+document.getElementById("mais").onclick = () => aproximar(1.25);
+document.getElementById("menos").onclick = () => aproximar(0.8);
+document.getElementById("ajustar").onclick = verTudo;
+addEventListener("resize", verTudo);
+
+fetch("funil.json").then((r) => r.json()).then((f) => {
+  document.getElementById("nome").textContent = f.nome;
+  document.getElementById("descricao").textContent = f.descricao;
+  const xs = f.nodes.flatMap((n) => [n.position.x, n.position.x + n.measured.width]);
+  const ys = f.nodes.flatMap((n) => [n.position.y, n.position.y + n.measured.height]);
+  limites = { x: Math.min(...xs), y: Math.min(...ys) };
+  limites.w = Math.max(...xs) - limites.x;
+  limites.h = Math.max(...ys) - limites.y;
+  desenharSetas(f.nodes, f.edges);
+  f.nodes.forEach(desenharNo);
+  verTudo();
+});
+</script>
+</body>
+</html>
