@@ -1,0 +1,839 @@
+{
+  "id": "roakgsg",
+  "nome": "Funil VSL · Plataforma",
+  "descricao": "Anúncios → LP com VSL → Pop-up → Checkout Hotmart → Boas-vindas + jornadas HSM/e-mail",
+  "capa": "vsl",
+  "criadoEm": 1792007919991,
+  "atualizadoEm": 1793210462326,
+  "nodes": [
+    {
+      "id": "ads-lp",
+      "type": "etapa",
+      "position": {
+        "x": 0,
+        "y": 88.8341718509281
+      },
+      "data": {
+        "tipo": "anuncio",
+        "titulo": "Anúncios Direto · LP",
+        "canal": "Meta Ads",
+        "texto": "Campanhas para LP\nOtimizada para Lead\nOtimizada para compra",
+        "stats": {
+          "entradas": 31,
+          "avancaram": 20,
+          "ativos": 2
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "lp-vendas",
+      "type": "etapa",
+      "position": {
+        "x": 560,
+        "y": -53.1658281490719
+      },
+      "data": {
+        "tipo": "pagina",
+        "titulo": "Página de Vendas",
+        "url": "https://revolucao.com.br/k/pagina-de-vendas/",
+        "texto": "LP venda com VSL\n1. VSL embedada com preço\n2. Copy da página sem preço\n3. Botão com CTA para ver oferta",
+        "stats": {
+          "entradas": 19,
+          "avancaram": 12,
+          "ativos": 1
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 576
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "popup",
+      "type": "etapa",
+      "position": {
+        "x": 1120,
+        "y": 0
+      },
+      "data": {
+        "tipo": "popup",
+        "titulo": "Pop-up pré-checkout",
+        "texto": "Coleta nome, telefone e e-mail antes de abrir o checkout",
+        "stats": {
+          "entradas": 12,
+          "avancaram": 7,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      }
+    },
+    {
+      "id": "checkout",
+      "type": "etapa",
+      "position": {
+        "x": 1680,
+        "y": 0
+      },
+      "data": {
+        "tipo": "checkout",
+        "titulo": "Checkout Hotmart",
+        "canal": "Hotmart",
+        "texto": "Checkout com vídeo no header\n1. Vídeo de pitch e reforço da oferta\n2. Auto-complete com dados do pop-up",
+        "stats": {
+          "entradas": 8,
+          "avancaram": 6,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      }
+    },
+    {
+      "id": "boas-vindas",
+      "type": "etapa",
+      "position": {
+        "x": 2240,
+        "y": 0
+      },
+      "data": {
+        "tipo": "pagina",
+        "titulo": "Página de boas-vindas",
+        "url": "https://revolucao.com.br/k/pagina-inicial/",
+        "texto": "Página de obrigado",
+        "stats": {
+          "entradas": 6,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 576
+      }
+    },
+    {
+      "id": "ads-forms",
+      "type": "etapa",
+      "position": {
+        "x": 0,
+        "y": 720
+      },
+      "data": {
+        "tipo": "anuncio",
+        "titulo": "Anúncios Direto · Forms",
+        "canal": "Meta Ads",
+        "texto": "Campanhas para Forms\nOtimizada para Lead\nOtimizada para compra",
+        "stats": {
+          "entradas": 27,
+          "avancaram": 13,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      }
+    },
+    {
+      "id": "forms-meta",
+      "type": "etapa",
+      "position": {
+        "x": 560,
+        "y": 720
+      },
+      "data": {
+        "tipo": "formulario",
+        "titulo": "Forms Nativo Meta",
+        "texto": "Nome\nTelefone\nE-mail",
+        "stats": {
+          "entradas": 13,
+          "avancaram": 9,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      }
+    },
+    {
+      "id": "jornada-hsm",
+      "type": "etapa",
+      "position": {
+        "x": 1120,
+        "y": 1160
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "Jornada de HSM",
+        "texto": "Sequência de 7 mensagens (D1 a D7) para quem entrou pelo pop-up ou pelo forms",
+        "stats": {
+          "entradas": 9,
+          "avancaram": 5,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      },
+      "selected": false
+    },
+    {
+      "id": "hsm-d1",
+      "type": "etapa",
+      "position": {
+        "x": 1680,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D1",
+        "texto": "Oi, {{nome}}! Aqui é o Rév, da Revolução Concursos. Vi que você conheceu o nosso método e parou antes de finalizar. Ficou alguma dúvida? Pode me responder por aqui mesmo.",
+        "compacto": true,
+        "stats": {
+          "entradas": 5,
+          "avancaram": 5,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "hsm-d2",
+      "type": "etapa",
+      "position": {
+        "x": 2020,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D2",
+        "texto": "{{nome}}, uma pergunta rápida: qual concurso você está mirando? Me conta que eu te mostro como a plataforma organiza o seu estudo para ele.",
+        "compacto": true,
+        "stats": {
+          "entradas": 5,
+          "avancaram": 4,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "hsm-d3",
+      "type": "etapa",
+      "position": {
+        "x": 2360,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D3",
+        "texto": "Estudar muito não é o mesmo que estudar o que cai. A Revolução te diz o que estudar hoje, na ordem certa. Quer ver por dentro? {{link}}",
+        "compacto": true,
+        "stats": {
+          "entradas": 4,
+          "avancaram": 1,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "hsm-d4",
+      "type": "etapa",
+      "position": {
+        "x": 2700,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D4",
+        "texto": "{{nome}}, separei um material gratuito para você começar ainda hoje: {{link_material}}",
+        "compacto": true,
+        "stats": {
+          "entradas": 1,
+          "avancaram": 1,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "hsm-d5",
+      "type": "etapa",
+      "position": {
+        "x": 3040,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D5",
+        "texto": "Muita gente começa animada e larga em duas semanas. A plataforma foi feita para isso não acontecer com você. Posso te mostrar como? {{link}}",
+        "compacto": true,
+        "stats": {
+          "entradas": 1,
+          "avancaram": 1,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "hsm-d6",
+      "type": "etapa",
+      "position": {
+        "x": 3380,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D6",
+        "texto": "{{nome}}, o seu plano de passar no concurso continua de pé? Se quiser retomar, o caminho está aqui: {{link}}",
+        "compacto": true,
+        "stats": {
+          "entradas": 1,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "hsm-d7",
+      "type": "etapa",
+      "position": {
+        "x": 3720,
+        "y": 1190
+      },
+      "data": {
+        "tipo": "whatsapp",
+        "titulo": "D7",
+        "texto": "Última mensagem desta semana, {{nome}}. Se não for a hora, tudo bem. Se for, é só tocar aqui: {{link}}. Bons estudos!",
+        "compacto": true,
+        "stats": {
+          "entradas": 0,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 124
+      }
+    },
+    {
+      "id": "jornada-email",
+      "type": "etapa",
+      "position": {
+        "x": 1120,
+        "y": 1560
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "Jornada E-mail",
+        "texto": "Sequência de 7 e-mails (D1 a D7)",
+        "stats": {
+          "entradas": 33,
+          "avancaram": 25,
+          "ativos": 2
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 297
+      },
+      "selected": false
+    },
+    {
+      "id": "mail-d1",
+      "type": "etapa",
+      "position": {
+        "x": 1680,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D1",
+        "texto": "Assunto: Você parou no meio do caminho\nOi, {{nome}}. Vi que você conheceu a Revolução e não finalizou. Se ficou alguma dúvida, é só responder este e-mail que alguém do time te responde. [Botão: Voltar para a página]",
+        "compacto": true,
+        "stats": {
+          "entradas": 25,
+          "avancaram": 10,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "mail-d2",
+      "type": "etapa",
+      "position": {
+        "x": 2020,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D2",
+        "texto": "Assunto: Qual concurso é o seu?\nCada concurso pede um plano diferente. Responda este e-mail com o seu e a gente te mostra como a plataforma monta o estudo para ele.",
+        "compacto": true,
+        "stats": {
+          "entradas": 10,
+          "avancaram": 6,
+          "ativos": 1
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "mail-d3",
+      "type": "etapa",
+      "position": {
+        "x": 2360,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D3",
+        "texto": "Assunto: O que estudar hoje\nO maior desperdício de quem estuda para concurso é passar horas no que não cai. A Revolução organiza o que estudar a cada dia, na ordem certa. [Botão: Ver a plataforma]",
+        "compacto": true,
+        "stats": {
+          "entradas": 6,
+          "avancaram": 2,
+          "ativos": 1
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "mail-d4",
+      "type": "etapa",
+      "position": {
+        "x": 2700,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D4",
+        "texto": "Assunto: Um material gratuito para você\nSeparamos um material para você começar hoje, sem pagar nada. [Botão: Baixar o material]",
+        "compacto": true,
+        "stats": {
+          "entradas": 2,
+          "avancaram": 2,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "mail-d5",
+      "type": "etapa",
+      "position": {
+        "x": 3040,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D5",
+        "texto": "Assunto: Por que tanta gente desiste\nComeçar é fácil. O difícil é continuar na terceira semana. A plataforma foi pensada para você não largar no meio. [Botão: Entender como funciona]",
+        "compacto": true,
+        "stats": {
+          "entradas": 1,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "mail-d6",
+      "type": "etapa",
+      "position": {
+        "x": 3380,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D6",
+        "texto": "Assunto: Ainda está de pé?\n{{nome}}, o seu plano de passar continua valendo? Se quiser retomar, o caminho está aqui. [Botão: Retomar]",
+        "compacto": true,
+        "stats": {
+          "entradas": 0,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "mail-d7",
+      "type": "etapa",
+      "position": {
+        "x": 3720,
+        "y": 1590
+      },
+      "data": {
+        "tipo": "email",
+        "titulo": "D7",
+        "texto": "Assunto: Último e-mail desta sequência\nEste é o último e-mail da semana. Se não for a hora, tudo bem, a gente continua por aqui. Se for, é só clicar. [Botão: Começar agora]",
+        "compacto": true,
+        "stats": {
+          "entradas": 0,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 260,
+        "height": 137
+      }
+    },
+    {
+      "id": "nota-ataque",
+      "type": "etapa",
+      "position": {
+        "x": 2300,
+        "y": 1040
+      },
+      "data": {
+        "tipo": "nota",
+        "titulo": "ATAQUE SOVIÉTICO",
+        "texto": "ATAQUE SOVIÉTICO\nJornadas de HSM e e-mail em paralelo por 7 dias",
+        "stats": {
+          "entradas": 0,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 240,
+        "height": 117
+      }
+    },
+    {
+      "id": "audiencias",
+      "type": "etapa",
+      "position": {
+        "x": 1120,
+        "y": 1920
+      },
+      "data": {
+        "tipo": "audiencia",
+        "titulo": "Audiências RMKT",
+        "texto": "Videoview\nPageview\nLead cadastrado",
+        "stats": {
+          "entradas": 0,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      }
+    },
+    {
+      "id": "ads-rmkt",
+      "type": "etapa",
+      "position": {
+        "x": 0,
+        "y": 2300
+      },
+      "data": {
+        "tipo": "anuncio",
+        "titulo": "Anúncios Direto · Rév",
+        "canal": "Meta Ads",
+        "texto": "Campanhas para rév\nPúblicos de:\n• Videoview\n• Pageview\n• Lead cadastrado",
+        "stats": {
+          "entradas": 29,
+          "avancaram": 17,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 295
+      }
+    },
+    {
+      "id": "rmkt-concursos",
+      "type": "etapa",
+      "position": {
+        "x": 560,
+        "y": 2300
+      },
+      "data": {
+        "tipo": "pagina",
+        "titulo": "RMKT: pagina-de-concurso",
+        "url": "https://revolucao.com.br/k/pagina-de-concursos/",
+        "stats": {
+          "entradas": 17,
+          "avancaram": 0,
+          "ativos": 0
+        }
+      },
+      "measured": {
+        "width": 300,
+        "height": 576
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "ads-lp>lp-vendas",
+      "type": "lead",
+      "source": "ads-lp",
+      "target": "lp-vendas",
+      "data": {
+        "passagens": 19
+      }
+    },
+    {
+      "id": "lp-vendas>popup",
+      "type": "lead",
+      "source": "lp-vendas",
+      "target": "popup",
+      "data": {
+        "passagens": 12
+      }
+    },
+    {
+      "id": "popup>checkout",
+      "type": "lead",
+      "source": "popup",
+      "target": "checkout",
+      "data": {
+        "passagens": 4
+      }
+    },
+    {
+      "id": "popup>jornada-hsm",
+      "type": "lead",
+      "source": "popup",
+      "target": "jornada-hsm",
+      "data": {
+        "passagens": 4
+      }
+    },
+    {
+      "id": "checkout>boas-vindas",
+      "type": "lead",
+      "source": "checkout",
+      "target": "boas-vindas",
+      "data": {
+        "passagens": 6
+      }
+    },
+    {
+      "id": "ads-forms>forms-meta",
+      "type": "lead",
+      "source": "ads-forms",
+      "target": "forms-meta",
+      "data": {
+        "passagens": 13
+      }
+    },
+    {
+      "id": "forms-meta>checkout",
+      "type": "lead",
+      "source": "forms-meta",
+      "target": "checkout",
+      "data": {
+        "passagens": 4
+      }
+    },
+    {
+      "id": "forms-meta>jornada-hsm",
+      "type": "lead",
+      "source": "forms-meta",
+      "target": "jornada-hsm",
+      "data": {
+        "passagens": 5
+      }
+    },
+    {
+      "id": "jornada-hsm>hsm-d1",
+      "type": "lead",
+      "source": "jornada-hsm",
+      "target": "hsm-d1",
+      "data": {
+        "passagens": 5
+      }
+    },
+    {
+      "id": "hsm-d1>hsm-d2",
+      "type": "lead",
+      "source": "hsm-d1",
+      "target": "hsm-d2",
+      "data": {
+        "passagens": 5
+      }
+    },
+    {
+      "id": "hsm-d2>hsm-d3",
+      "type": "lead",
+      "source": "hsm-d2",
+      "target": "hsm-d3",
+      "data": {
+        "passagens": 4
+      }
+    },
+    {
+      "id": "hsm-d3>hsm-d4",
+      "type": "lead",
+      "source": "hsm-d3",
+      "target": "hsm-d4",
+      "data": {
+        "passagens": 1
+      }
+    },
+    {
+      "id": "hsm-d4>hsm-d5",
+      "type": "lead",
+      "source": "hsm-d4",
+      "target": "hsm-d5",
+      "data": {
+        "passagens": 1
+      }
+    },
+    {
+      "id": "hsm-d5>hsm-d6",
+      "type": "lead",
+      "source": "hsm-d5",
+      "target": "hsm-d6",
+      "data": {
+        "passagens": 1
+      }
+    },
+    {
+      "id": "hsm-d6>hsm-d7",
+      "type": "lead",
+      "source": "hsm-d6",
+      "target": "hsm-d7",
+      "data": {
+        "passagens": 0
+      }
+    },
+    {
+      "id": "jornada-email>mail-d1",
+      "type": "lead",
+      "source": "jornada-email",
+      "target": "mail-d1",
+      "data": {
+        "passagens": 25
+      }
+    },
+    {
+      "id": "mail-d1>mail-d2",
+      "type": "lead",
+      "source": "mail-d1",
+      "target": "mail-d2",
+      "data": {
+        "passagens": 10
+      }
+    },
+    {
+      "id": "mail-d2>mail-d3",
+      "type": "lead",
+      "source": "mail-d2",
+      "target": "mail-d3",
+      "data": {
+        "passagens": 6
+      }
+    },
+    {
+      "id": "mail-d3>mail-d4",
+      "type": "lead",
+      "source": "mail-d3",
+      "target": "mail-d4",
+      "data": {
+        "passagens": 2
+      }
+    },
+    {
+      "id": "mail-d4>mail-d5",
+      "type": "lead",
+      "source": "mail-d4",
+      "target": "mail-d5",
+      "data": {
+        "passagens": 1
+      }
+    },
+    {
+      "id": "mail-d5>mail-d6",
+      "type": "lead",
+      "source": "mail-d5",
+      "target": "mail-d6",
+      "data": {
+        "passagens": 0
+      }
+    },
+    {
+      "id": "mail-d6>mail-d7",
+      "type": "lead",
+      "source": "mail-d6",
+      "target": "mail-d7",
+      "data": {
+        "passagens": 0
+      }
+    },
+    {
+      "id": "ads-rmkt>rmkt-concursos",
+      "type": "lead",
+      "source": "ads-rmkt",
+      "target": "rmkt-concursos",
+      "data": {
+        "passagens": 17
+      }
+    }
+  ]
+}
